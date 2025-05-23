@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SMKN 5 BONE</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #2b5876, #4e4376);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .logo {
+      max-width: 120px;
+      margin-bottom: 20px;
+    }
+
+    .marquee {
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+      border-top: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      padding: 10px 0;
+      font-size: 24px;
+      font-weight: bold;
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .marquee span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: marquee 15s linear infinite;
+    }
+
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .clock {
+      margin-top: 30px;
+      font-size: 28px;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 15px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LOGO SEKOLAH -->
+  <img src="Logo SMKN 5 BONE (2).png" alt="Logo SMKN 5 Bone" class="logo" />  
+
+  <!-- TEKS BERJALAN -->
+  <div class="marquee">
+    <span>SELAMAT DATANG DI JURUSAN TEKNIK JARINGAN KOMPUTER DAN TELEKOMUNIKASI (TJKT) - SMKN 5 BONE - SMK BISA SMK HEBAT  </span>
+  </div>
+
+  <!-- JAM DAN TANGGAL -->
+  <div class="clock" id="clock">
+    <!-- Waktu akan tampil di sini -->
+  </div>
+
+  <script>
+    function updateClock() {
+      const clockElement = document.getElementById("clock");
+      const now = new Date();
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const tanggal = now.toLocaleDateString('id-ID', options);
+      const waktu = now.toLocaleTimeString('id-ID');
+      clockElement.innerHTML = `${tanggal} - ${waktu}`;
+    }
+
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
+
